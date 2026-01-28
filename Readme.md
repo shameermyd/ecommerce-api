@@ -10,10 +10,14 @@ iboson-ecommerce/
     │   └── database.js
     ├── modules/
     │   ├── user/
-    │   │   ├── user.model.js
-    │   │   ├── user.controller.js
-    │   │   ├── user.service.js
-    │   │   └── user.routes.js
+            ├── models/
+    │   │   |  └── user.model.js
+    │   │   ├── controller/
+    |   |   |   └── user.controller.js
+    │   │   ├── service/
+    |   |   |   └── user.service.js
+    │   │   └── routes/
+    |   |       └── user.routes.js
     │   ├── product/
     │   │   ├── product.model.js
     │   │   ├── product.controller.js
