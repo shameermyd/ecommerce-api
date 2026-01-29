@@ -1,11 +1,12 @@
+const { AppError } = require("../../../utils/appError");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 
 const registerUser = async({name, email, password}) =>{
-    try {
+
         const isExistingUser = await User.findOne({email});
         if(isExistingUser){
-            throw new Error("EmailId already Exist!!");
+            throw new AppError("EmailId already Exist!!",400);
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -17,12 +18,17 @@ const registerUser = async({name, email, password}) =>{
         });
 
         return savedUser;
+}
 
+const getAllUsers = async() =>{
+    try {
+        return 'user';
     } catch (error) {
-        console.error("Error: ",error);
+        console.log
     }
 }
 
 module.exports = {
     registerUser,
+    getAllUsers
 }

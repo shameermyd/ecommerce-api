@@ -6,14 +6,14 @@ exports.register = async (req, res) => {
 
         const user = await registerUser({ name, email, password });
 
-        return res.json({
+        res.json({
             message: "User Registered Successfully!",
             userId: user.id,
         })
 
     } catch (error) {
-        res.status(400).json({
-            message: "User Registration Failed !!",
+        res.status(error.statusCode || 500).json({
+            message: error.message || "Internal Server Error",
 
         })
     }
