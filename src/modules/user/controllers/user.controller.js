@@ -1,4 +1,4 @@
-const { registerUser } = require("../services/user.service")
+const { registerUser, getAllUsers } = require("../services/user.service")
 
 exports.register = async (req, res) => {
     try {
@@ -18,5 +18,22 @@ exports.register = async (req, res) => {
         })
     }
 
+}
+
+exports.getAll = async (req,res) => {
+    try {
+        const users = await getAllUsers();
+
+        res.status(200).json({
+            success: true,
+            message: 'Fetch all users',
+            users
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        })
+    }
 }
 

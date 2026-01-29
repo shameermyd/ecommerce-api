@@ -1,3 +1,5 @@
+##
+
 ##Project Structure
 
 iboson-ecommerce/
@@ -10,7 +12,7 @@ iboson-ecommerce/
     │   └── database.js
     ├── modules/
     │   ├── user/
-            ├── models/
+    |   |   ├── models/
     │   │   |  └── user.model.js
     │   │   ├── controller/
     |   |   |   └── user.controller.js

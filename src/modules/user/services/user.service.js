@@ -6,7 +6,7 @@ const registerUser = async({name, email, password}) =>{
 
         const isExistingUser = await User.findOne({email});
         if(isExistingUser){
-            throw new AppError("EmailId already Exist!!",400);
+            throw new AppError("EmailId already Exist!!",409);
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -21,11 +21,8 @@ const registerUser = async({name, email, password}) =>{
 }
 
 const getAllUsers = async() =>{
-    try {
-        return 'user';
-    } catch (error) {
-        console.log
-    }
+    const users = await User.find().select("name email");
+    return users;
 }
 
 module.exports = {
